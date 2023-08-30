@@ -1,15 +1,58 @@
-import React, { useState } from "react";
-import { Button, Typography, Input } from "antd";
+import React, { useContext, useState } from "react";
+import { Button, Typography, Input, message } from "antd";
 import { PiArrowSquareRightFill } from "react-icons/pi";
 import { useNavigate } from "react-router-dom";
+import { ContextData } from "../Context/context";
 
 export const SponsorApplication = () => {
-  const [isActive, setIsActive] = useState(1);
+  const { sponsorData, setSponsorData, studentData, setStudentData } =
+    useContext(ContextData);
+  const [isActive, setIsActive] = useState("Jismoniy shaxs");
+  const [sendName, setSendName] = useState("");
+  const [sendNumber, setSendNumber] = useState("+998");
+  const [sendSum, setSendSum] = useState(1000000);
   const [another, setAnother] = useState(false);
+  const [organizationName, setOrganizationName] = useState("");
   const navigate = useNavigate();
+
+  const sponsorDataID = sponsorData.reduce((sponsorID, sponsorOrder) => {
+    return Math.max(sponsorID, sponsorOrder.id);
+  }, -1);
+
+  const Send = () => {
+    setSponsorData((prev) => [
+      ...prev,
+      {
+        id: sponsorDataID + 1,
+        name: sendName,
+        number: sendNumber,
+        sponsorsPrice: sendSum,
+        spentPrice: 0,
+        person: isActive,
+        data: new Date(),
+        organizationName,
+        status: "Yangi",
+      },
+    ]);
+    setIsActive("Jismoniy shaxs");
+    setSendName("");
+    setSendNumber("+998");
+    setSendSum(1000000);
+    setOrganizationName("");
+  };
+
+  const [messageApi, contextHolder] = message.useMessage();
+
+  const success = () => {
+    messageApi.open({
+      type: "success",
+      content: "Muvaffaqiyatli qo'shildi",
+    });
+  };
 
   return (
     <>
+      {contextHolder}
       <div
         className={"flex justify-between items-center py-5 px-20"}
         style={{
@@ -31,9 +74,9 @@ export const SponsorApplication = () => {
         </div>
         <div>
           <ul className={"flex items-center gap-5"}>
-            <li>Asosiy</li>
-            <li>Grantlar</li>
-            <li>Soliq imtiyozlari</li>
+            <li className={"cursor-pointer"}>Asosiy</li>
+            <li className={"cursor-pointer"}>Grantlar</li>
+            <li className={"cursor-pointer"}>Soliq imtiyozlari</li>
             <li
               className={"flex items-center gap-1 cursor-pointer"}
               onClick={() => navigate("/login")}
@@ -68,11 +111,12 @@ export const SponsorApplication = () => {
                 "border border-blue-500 py-2 text-center rounded-s cursor-pointer"
               }
               style={{
-                backgroundColor: isActive === 1 ? "#36F" : "#fff",
-                color: isActive === 1 ? "#fff" : "black",
+                backgroundColor:
+                  isActive === "Jismoniy shaxs" ? "#36F" : "#fff",
+                color: isActive === "Jismoniy shaxs" ? "#fff" : "black",
                 width: "50%",
               }}
-              onClick={() => setIsActive(1)}
+              onClick={() => setIsActive("Jismoniy shaxs")}
             >
               Jismoniy shaxs
             </div>
@@ -81,11 +125,11 @@ export const SponsorApplication = () => {
                 "border border-blue-500 py-2 text-center rounded-e cursor-pointer"
               }
               style={{
-                backgroundColor: isActive === 2 ? "#36F" : "#fff",
-                color: isActive === 2 ? "#fff" : "black",
+                backgroundColor: isActive === "Yuridik shaxs" ? "#36F" : "#fff",
+                color: isActive === "Yuridik shaxs" ? "#fff" : "black",
                 width: "50%",
               }}
-              onClick={() => setIsActive(2)}
+              onClick={() => setIsActive("Yuridik shaxs")}
             >
               Yuridik shaxs
             </div>
@@ -94,19 +138,35 @@ export const SponsorApplication = () => {
             <div>
               <label className={"text-bold"}>
                 F.I.Sh. (Familiya Ism Sharifingiz)
-                <Input />
+                <Input
+                  value={sendName}
+                  onChange={(e) => setSendName(e.target.value)}
+                />
               </label>
             </div>
             <div className={"mt-5"}>
               <label className={"text-bold"}>
                 Telefon raqamingiz
-                <Input defaultValue={"+998"} />
+                <Input
+                  value={sendNumber}
+                  onChange={(e) => setSendNumber(e.target.value)}
+                />
               </label>
             </div>
           </div>
           <Typography className={"mt-3 font-bold"}>To‘lov summasi</Typography>
           <div style={{ width: "100%" }} className={"flex flex-wrap gap-2"}>
-            <Button style={{ width: "32%", fontWeight: "bold" }}>
+            <Button
+              style={{
+                width: "32%",
+                fontWeight: "bold",
+                border: sendSum === 1000000 ? "1px solid blue" : "",
+              }}
+              onClick={() => {
+                setAnother(false);
+                setSendSum(1000000);
+              }}
+            >
               1 000 000
               <span
                 style={{ fontSize: 10, marginInlineStart: 2, color: "#2E5BFF" }}
@@ -114,7 +174,17 @@ export const SponsorApplication = () => {
                 UZS
               </span>
             </Button>
-            <Button style={{ width: "32%", fontWeight: "bold" }}>
+            <Button
+              style={{
+                width: "32%",
+                fontWeight: "bold",
+                border: sendSum === 5000000 ? "1px solid blue" : "",
+              }}
+              onClick={() => {
+                setAnother(false);
+                setSendSum(5000000);
+              }}
+            >
               5 000 000{" "}
               <span
                 style={{ fontSize: 10, marginInlineStart: 2, color: "#2E5BFF" }}
@@ -122,7 +192,17 @@ export const SponsorApplication = () => {
                 UZS
               </span>
             </Button>
-            <Button style={{ width: "32%", fontWeight: "bold" }}>
+            <Button
+              style={{
+                width: "32%",
+                fontWeight: "bold",
+                border: sendSum === 7000000 ? "1px solid blue" : "",
+              }}
+              onClick={() => {
+                setAnother(false);
+                setSendSum(7000000);
+              }}
+            >
               7 000 000{" "}
               <span
                 style={{ fontSize: 10, marginInlineStart: 2, color: "#2E5BFF" }}
@@ -130,7 +210,17 @@ export const SponsorApplication = () => {
                 UZS
               </span>
             </Button>
-            <Button style={{ width: "32%", fontWeight: "bold" }}>
+            <Button
+              style={{
+                width: "32%",
+                fontWeight: "bold",
+                border: sendSum === 10000000 ? "1px solid blue" : "",
+              }}
+              onClick={() => {
+                setAnother(false);
+                setSendSum(10000000);
+              }}
+            >
               10 000 000{" "}
               <span
                 style={{ fontSize: 10, marginInlineStart: 2, color: "#2E5BFF" }}
@@ -138,7 +228,17 @@ export const SponsorApplication = () => {
                 UZS
               </span>
             </Button>
-            <Button style={{ width: "32%", fontWeight: "bold" }}>
+            <Button
+              style={{
+                width: "32%",
+                fontWeight: "bold",
+                border: sendSum === 30000000 ? "1px solid blue" : "",
+              }}
+              onClick={() => {
+                setAnother(false);
+                setSendSum(30000000);
+              }}
+            >
               30 000 000{" "}
               <span
                 style={{ fontSize: 10, marginInlineStart: 2, color: "#2E5BFF" }}
@@ -147,19 +247,45 @@ export const SponsorApplication = () => {
               </span>
             </Button>
             <Button
-              style={{ width: "32%", fontWeight: "bold" }}
-              onClick={() => setAnother(another === false ? true : false)}
+              style={{
+                width: "32%",
+                fontWeight: "bold",
+                border: sendSum === "Boshqa" ? "1px solid blue" : "",
+              }}
+              onClick={() => {
+                setAnother(true);
+                setSendSum("Boshqa");
+              }}
             >
               BOSHQA
             </Button>
-            {another ? <Input /> : ""}
+            {another ? (
+              <Input onChange={(e) => setSendSum(e.target.value)} />
+            ) : (
+              ""
+            )}
           </div>
+          {isActive === "Yuridik shaxs" && (
+            <div className={"mt-5"}>
+              <label className={"text-bold"}>
+                Tashkilot nomi
+                <Input
+                  value={organizationName}
+                  onChange={(e) => setOrganizationName(e.target.value)}
+                />
+              </label>
+            </div>
+          )}
           <Button
             style={{
               backgroundColor: "#2E5BFF",
               color: "#fff",
               width: "100%",
               marginTop: 20,
+            }}
+            onClick={() => {
+              success();
+              Send();
             }}
           >
             Yuborish
