@@ -8,7 +8,7 @@ export const LoginPage = ({ setUserActivited }) => {
   const { Text, Space, Title } = Typography;
   const navigate = useNavigate();
   const submit = () => {
-    if (login === "Abdulmalik" && password === "1212") {
+    if (login === "Diko" && password === "2526") {
       setUserActivited(true);
       navigate("/kirildi");
     }
@@ -50,6 +50,7 @@ export const LoginPage = ({ setUserActivited }) => {
             <span className={"font-bold"}>Login</span>
             <Input
               value={login}
+              placeholder="Diko"
               onChange={(e) => setLogin(e.target.value)}
               size="large"
             />
@@ -61,6 +62,7 @@ export const LoginPage = ({ setUserActivited }) => {
             <Input.Password
               onChange={(e) => setPassword(e.target.value)}
               value={password}
+              placeholder="2526"
               size="large"
             />
           </label>

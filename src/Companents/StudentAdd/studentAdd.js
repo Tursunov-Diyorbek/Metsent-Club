@@ -160,6 +160,13 @@ export const StudentAdd = () => {
                   success2();
                   AddStudent();
                 }}
+                disabled={
+                  studentNameAdd === "" ||
+                  studentNumberAdd === "+998" ||
+                  studentOTMAdd === "" ||
+                  studentTypeAdd === "" ||
+                  setStudentPriceAdd === ""
+                }
               >
                 + Qo‘shish
               </Button>

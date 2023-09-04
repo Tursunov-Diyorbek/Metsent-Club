@@ -24,7 +24,7 @@ export const FilterModal = ({
   const [studentOTM, setStudentOTM] = useState([...StudentsOTM]);
   const [sponsorStatus, setSponsorStatus] = useState([...sponsorsStatusData]);
   const [sponsorStatusData, setSponsorStatusData] = useState("");
-  // const [sponsorDateFilter, setSponsorDateFilter] = useState(null);
+  const [sponsorDateFilter, setSponsorDateFilter] = useState("");
   const [filterSum, setFilterSum] = useState("Barchasi");
   const [typeStudents, setTypeStudents] = useState("");
   const [placeStudys, setPlaceStudys] = useState("");
@@ -65,6 +65,11 @@ export const FilterModal = ({
 
   const SponsorData = (value) => {
     setSponsorStatusData(value);
+  };
+
+  const onFinish = (value) => {
+    console.log(value);
+    // setSponsorDateFilter(value);
   };
 
   return (
@@ -187,7 +192,7 @@ export const FilterModal = ({
             </div>
           </div>
           <Typography className={"font-bold mt-5"}>SANA</Typography>
-          <DatePicker />
+          <DatePicker onFinish={onFinish} />
           <Divider />
         </Modals>
       )}
@@ -206,7 +211,6 @@ export const FilterModal = ({
               style={{
                 width: "100%",
               }}
-              name="1"
               onChange={TypeStudents}
               options={studentType.map((item) => ({
                 label: item.type,
@@ -221,7 +225,6 @@ export const FilterModal = ({
               style={{
                 width: "100%",
               }}
-              name="2"
               onChange={PlaceStudys}
               options={studentOTM.map((item) => ({
                 label: item.name,

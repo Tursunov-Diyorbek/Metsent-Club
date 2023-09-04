@@ -287,6 +287,7 @@ export const SponsorApplication = () => {
               success();
               Send();
             }}
+            disabled={sendName === "" || sendNumber === "+998"}
           >
             Yuborish
           </Button>

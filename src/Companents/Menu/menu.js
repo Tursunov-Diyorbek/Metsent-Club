@@ -1,6 +1,6 @@
 import { Button, Radio, Table, Tag, Typography, Tooltip } from "antd";
 import { Container } from "../Container/container";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { CiSearch, CiFilter } from "react-icons/ci";
 import { FaEye, FaMoneyBillWave } from "react-icons/fa";
 import dayjs from "dayjs";
@@ -15,9 +15,10 @@ export const Menu = () => {
     useContext(ContextData);
   const [nameSearch, setNameSearch] = useState("");
   const [filterModalOpen, setFilterModalOpen] = useState(false);
+  const [editStudent, setEditStudent] = useState({});
+  console.log(editStudent);
 
   const navigate = useNavigate();
-  const location = useLocation();
   const { tab } = useParams();
 
   const columnsSponsors = [
@@ -91,12 +92,12 @@ export const Menu = () => {
     },
     {
       title: "Amallar",
-      dataIndex: "",
-      key: "dsfsd",
+      dataIndex: "id",
+      key: "id",
       render: (value, row) => (
         <FaEye
           style={{ color: "blue", fontSize: 20, cursor: "pointer" }}
-          onClick={() => navigate("/admin/homiylar/homiyni_ozgartirish")}
+          onClick={() => navigate(`/admin/homiylar/${value}`)}
         />
       ),
     },
@@ -151,18 +152,20 @@ export const Menu = () => {
     },
     {
       title: "Amallar",
-      dataIndex: "",
-      key: "dxggghf",
+      dataIndex: "id",
+      key: "id",
       render: (value, row) => (
         <FaEye
           style={{ color: "blue", fontSize: 20, cursor: "pointer" }}
           onClick={() => {
-            navigate("/admin/talabalar/talabani_ozgartirish");
+            navigate(`/admin/talabalar/${value}`);
+            setEditStudent(row);
           }}
         />
       ),
     },
   ];
+
   const data = [
     {
       name: "Yanvar",
@@ -330,7 +333,7 @@ export const Menu = () => {
               pagination={{
                 pageSize: 5,
               }}
-              className={"mt-5"}
+              className={"mt-5 overflow-auto"}
             />
           </>
         )}

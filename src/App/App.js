@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./App.css";
 import "../Style/style.css";
 import { SponsorApplication } from "../Companents/SponsorApplication/sponsorApplication";
-import { Route, Routes, useNavigate, useLocation } from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import { LoginPage } from "../Companents/Access/access";
 import { useLocalStorageState } from "ahooks";
 import { AdminPanel } from "../Companents/Admin/AdminPanel";
@@ -25,6 +25,7 @@ function App() {
   const [studentData, setStudentData] = useLocalStorageState("StudentsData", {
     defaultValue: [...StudentsData],
   });
+  // const { editStudent, setEditStudent } = useState("");
 
   const navigate = useNavigate();
 
@@ -59,13 +60,10 @@ function App() {
             element={<StudentAdd />}
           ></Route>
 
-          <Route
-            path={"/admin/homiylar/homiyni_ozgartirish"}
-            element={<SponsorEdit />}
-          ></Route>
+          <Route path={"/admin/homiylar/:id"} element={<SponsorEdit />}></Route>
 
           <Route
-            path={"/admin/talabalar/talabani_ozgartirish"}
+            path={"/admin/talabalar/:id"}
             element={<StudentEdit />}
           ></Route>
         </Route>

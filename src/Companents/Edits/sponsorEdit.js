@@ -15,7 +15,7 @@ export const SponsorEdit = () => {
             style={{ fontSize: 25, cursor: "pointer" }}
             onClick={() => navigate("/admin/homiylar")}
           />
-          <Typography style={{ fontSize: 25 }}>Homiy Edit</Typography>
+          <Typography style={{ fontSize: 25 }}>Homiy o'zgartirish</Typography>
         </div>
       </Container>
     </>
