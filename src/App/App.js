@@ -6,13 +6,15 @@ import { Route, Routes, useNavigate } from "react-router-dom";
 import { LoginPage } from "../Companents/Access/access";
 import { useLocalStorageState } from "ahooks";
 import { AdminPanel } from "../Companents/Admin/AdminPanel";
-import { Menu } from "../Companents/Menu/menu";
 import { ContextData } from "../Companents/Context/context";
 import { SponsorsData } from "../Companents/SponsorsData/sponsorsData";
 import { StudentsData } from "../Companents/SponsorsData/studentsData";
 import { StudentAdd } from "../Companents/StudentAdd/studentAdd";
 import { SponsorEdit } from "../Companents/Edits/sponsorEdit";
 import { StudentEdit } from "../Companents/Edits/studentEdit";
+import { Dashboards } from "../Companents/Menu/dashboards";
+import { Sponsors } from "../Companents/Menu/sponsors";
+import { Students } from "../Companents/Menu/students";
 
 function App() {
   const [userActivited, setUserActivited] = useLocalStorageState(
@@ -25,7 +27,7 @@ function App() {
   const [studentData, setStudentData] = useLocalStorageState("StudentsData", {
     defaultValue: [...StudentsData],
   });
-  // const { editStudent, setEditStudent } = useState("");
+  const [nameSearch, setNameSearch] = useState("");
 
   const navigate = useNavigate();
 
@@ -41,6 +43,8 @@ function App() {
         setSponsorData,
         studentData,
         setStudentData,
+        nameSearch,
+        setNameSearch,
       }}
     >
       <Routes>
@@ -53,7 +57,9 @@ function App() {
           path={"/admin"}
           element={<AdminPanel setUserActivited={setUserActivited} />}
         >
-          <Route path={"/admin/:tab"} element={<Menu />}></Route>
+          <Route path={"/admin/dashboard"} element={<Dashboards />}></Route>
+          <Route path={"/admin/homiylar"} element={<Sponsors />}></Route>
+          <Route path={"/admin/talabalar"} element={<Students />}></Route>
 
           <Route
             path={"/admin/talabalar/talaba_qoshish"}

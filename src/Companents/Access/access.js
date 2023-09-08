@@ -1,14 +1,13 @@
-import { useState } from "react";
-import { Button, Checkbox, Input, Typography, label } from "antd";
+import React from "react";
+import { Button, Checkbox, Input, Typography, label, Form } from "antd";
 import { useNavigate } from "react-router-dom";
 export const LoginPage = ({ setUserActivited }) => {
-  const [login, setLogin] = useState("");
-  const [password, setPassword] = useState("");
-
   const { Text, Space, Title } = Typography;
   const navigate = useNavigate();
-  const submit = () => {
-    if (login === "Diko" && password === "2526") {
+
+  const onFinishLogin = (values) => {
+    console.log(values);
+    if (values.login === "Diko" && values.password === "2526") {
       setUserActivited(true);
       navigate("/kirildi");
     }
@@ -19,7 +18,7 @@ export const LoginPage = ({ setUserActivited }) => {
       className={""}
       style={{
         width: "400px",
-        height: "80vh",
+        height: "100vh",
         display: "flex",
         margin: "0 auto",
         flexDirection: "column",
@@ -44,42 +43,57 @@ export const LoginPage = ({ setUserActivited }) => {
       </div>
 
       <div className={"bg-white p-5 rounded-2xl"}>
-        <Title className={"pb-5"}>Kirish</Title>
+        <Title>Kirish</Title>
         <div className={"mb-5"}>
-          <label className={"mb-4"}>
-            <span className={"font-bold"}>Login</span>
-            <Input
-              value={login}
-              placeholder="Diko"
-              onChange={(e) => setLogin(e.target.value)}
+          <Form
+            initialValues={{
+              remember: true,
+            }}
+            onFinish={onFinishLogin}
+            // onFinishFailed={onFinishFailed}
+            autoComplete="off"
+          >
+            <label>
+              <Typography className={"font-bold"}>Login kiriting</Typography>
+              <Form.Item
+                name="login"
+                rules={[
+                  {
+                    required: true,
+                    message: "Senda login degan narsa yo'qmi 🤨!",
+                  },
+                ]}
+              >
+                <Input placeholder="Diko" size="large" />
+              </Form.Item>
+            </label>
+            <label>
+              <Typography className={"font-bold"}>Parol kiriting</Typography>
+              <Form.Item
+                name="password"
+                rules={[
+                  {
+                    required: true,
+                    message: "Parol kirit dedim senga 😡!",
+                  },
+                ]}
+              >
+                <Input placeholder="2526" size="large" />
+              </Form.Item>
+            </label>
+            <Checkbox className={"p-4 font-medium border-2 rounded mb-4"}>
+              I’m not a robot
+            </Checkbox>
+            <Button
               size="large"
-            />
-          </label>
+              className={"bg-blue-700 text-white"}
+              style={{ width: "100%" }}
+              htmlType="submit"
+            >
+              Kirish
+            </Button>
+          </Form>
         </div>
-        <div className={""}>
-          <label className={"mb-4"}>
-            <span className={"font-bold"}>Parol</span>
-            <Input.Password
-              onChange={(e) => setPassword(e.target.value)}
-              value={password}
-              placeholder="2526"
-              size="large"
-            />
-          </label>
-        </div>
-
-        <div className={"border-2 rounded my-4"}>
-          <Checkbox className={"p-4 font-medium"}>I’m not a robot</Checkbox>
-          <Text className={""}></Text>
-        </div>
-        <Button
-          size="large"
-          onClick={submit}
-          className={"bg-blue-700 text-white"}
-          style={{ width: "100%" }}
-        >
-          Kirish
-        </Button>
       </div>
     </div>
   );

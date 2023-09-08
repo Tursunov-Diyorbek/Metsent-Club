@@ -1,7 +1,10 @@
 import { Container } from "../Container/container";
 import { Typography, Image } from "antd";
-import { GiExitDoor } from "react-icons/gi";
 import { useNavigate, Outlet } from "react-router-dom";
+import lottie from "lottie-web";
+import { defineElement } from "lord-icon-element";
+
+defineElement(lottie.loadAnimation);
 
 export const AdminPanel = ({ setUserActivited }) => {
   const navigate = useNavigate();
@@ -26,13 +29,16 @@ export const AdminPanel = ({ setUserActivited }) => {
                   height={30}
                 />
               </div>
-              <GiExitDoor
-                style={{ fontSize: 25, cursor: "pointer", color: "#B1B1B8" }}
+              <lord-icon
+                src="https://cdn.lordicon.com/twopqjaj.json"
+                trigger="boomerang"
+                colors="primary:#121331,secondary:#ebe6ef,tertiary:#f9c9c0,quaternary:#f24c00,quinary:#3a3347,senary:#b26836,septenary:#2ca58d"
+                style={{ width: "50px", height: "50px", cursor: "pointer" }}
                 onClick={() => {
                   navigate("/");
                   setUserActivited(false);
                 }}
-              />
+              ></lord-icon>
             </div>
           </div>
         </Container>

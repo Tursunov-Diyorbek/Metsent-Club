@@ -4,8 +4,8 @@ import {
   Button,
   Col,
   Divider,
+  Form,
   Input,
-  message,
   Row,
   Select,
   Typography,
@@ -14,17 +14,15 @@ import { useNavigate } from "react-router-dom";
 import React, { useContext, useState } from "react";
 import { StudentsType, StudentsOTM } from "../SponsorsData/studentsSmallData";
 import { ContextData } from "../Context/context";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import Confetti from "react-confetti";
 
 export const StudentAdd = () => {
-  const { sponsorData, setSponsorData, studentData, setStudentData } =
-    useContext(ContextData);
+  const { studentData, setStudentData } = useContext(ContextData);
   const [studentType, setStudentType] = useState([...StudentsType]);
   const [studentOTM, setStudentOTM] = useState([...StudentsOTM]);
-  const [studentTypeAdd, setStudentTypeAdd] = useState("");
-  const [studentOTMAdd, setStudentOTMAdd] = useState("");
-  const [studentNameAdd, setStudentNameAdd] = useState("");
-  const [studentNumberAdd, setStudentNumberAdd] = useState("+998");
-  const [studentPriceAdd, setStudentPriceAdd] = useState("");
+  const [showConfetti2, setShowConfetti2] = useState(false);
   const navigate = useNavigate();
 
   const studentDataID = studentData.reduce(
@@ -33,45 +31,37 @@ export const StudentAdd = () => {
     },
     -1,
   );
-
-  const AddStudent = () => {
-    setStudentData((prev) => [
-      ...prev,
-      {
-        id: studentDataID + 1,
-        name: studentNameAdd,
-        typeStudent: studentTypeAdd,
-        placeStudy: studentOTMAdd,
-        separatedPrice: 0,
-        contractAmount: studentPriceAdd,
-        studentNumber: studentNumberAdd,
-      },
-    ]);
-    setStudentNameAdd("");
-    setStudentNumberAdd("+998");
-    setStudentOTMAdd("");
-    setStudentTypeAdd("");
-    setStudentPriceAdd("");
-  };
-  const [messageApi, contextHolder] = message.useMessage();
-
-  const success2 = () => {
-    messageApi.open({
-      type: "success",
-      content: "Talaba qo'shildi",
+  const notify3 = () => {
+    toast.success("Talaba qo'shildi 🥳", {
+      position: toast.POSITION.TOP_RIGHT,
     });
   };
 
-  const AddStudentType = (value) => {
-    setStudentTypeAdd(value);
-  };
-  const AddStudentOTM = (value) => {
-    setStudentOTMAdd(value);
+  const onFinishAddStudent = (values) => {
+    setStudentData((prev) => [
+      {
+        id: studentDataID + 1,
+        name: values.name,
+        typeStudent: values.type,
+        placeStudy: values.otm,
+        separatedPrice: 0,
+        contractAmount: values.contractPrice,
+        number: values.number,
+        studentSponsors: [],
+      },
+      ...prev,
+    ]);
+    setShowConfetti2(true);
+    setTimeout(() => {
+      setShowConfetti2(false);
+    }, 6000);
+    notify3();
   };
 
   return (
     <>
-      {contextHolder}
+      {showConfetti2 && <Confetti />}
+      <ToastContainer />
       <Container className={"pb-3 bg-white"}>
         <div className={"flex items-center gap-3 font-bold"}>
           <GoArrowLeft
@@ -88,89 +78,123 @@ export const StudentAdd = () => {
           xl={{ span: 12, offset: 6 }}
         >
           <div className={"py-5 px-3 bg-white shadow mt-10 rounded"}>
-            <div>
-              <div className={"flex items-center justify-between"}>
-                <label className={"w-[46%]"}>
-                  <Typography className={"font-bold"}>
-                    F.I.Sh. (Familiya Ism Sharif)
-                  </Typography>
-                  <Input
-                    value={studentNameAdd}
-                    onChange={(e) => setStudentNameAdd(e.target.value)}
-                  />
+            <Form onFinish={onFinishAddStudent}>
+              <div>
+                <div className={"flex items-center justify-between"}>
+                  <label className={"w-[46%]"}>
+                    <Typography className={"font-bold"}>
+                      F.I.Sh. (Familiya Ism Sharif)
+                    </Typography>
+                    <Form.Item
+                      name="name"
+                      hasFeedback
+                      rules={[
+                        {
+                          required: true,
+                          message: "Familiya ismini kiritmaysanmi 🤔?",
+                        },
+                      ]}
+                    >
+                      <Input />
+                    </Form.Item>
+                  </label>
+                  <label className={"w-[46%]"}>
+                    <Typography className={"font-bold"}>
+                      Telefon raqam
+                    </Typography>
+                    <Form.Item
+                      name="number"
+                      hasFeedback
+                      rules={[
+                        {
+                          required: true,
+                          message: "Telefon raqamini kiritmaysanmi 🤔?",
+                        },
+                      ]}
+                    >
+                      <Input />
+                    </Form.Item>
+                  </label>
+                </div>
+                <label>
+                  <Typography className={"font-bold"}>OTM</Typography>
+                  <Form.Item
+                    name="otm"
+                    hasFeedback
+                    rules={[
+                      {
+                        required: true,
+                        message: "OTM kiritmaysanmi 🤔?",
+                      },
+                    ]}
+                  >
+                    <Select
+                      allowClear
+                      mode="multiple"
+                      options={studentOTM.map((item) => ({
+                        label: item.name,
+                        value: item.name,
+                      }))}
+                    />
+                  </Form.Item>
                 </label>
-                <label className={"w-[46%]"}>
-                  <Typography className={"font-bold"}>Telefon raqam</Typography>
-                  <Input
-                    value={studentNumberAdd}
-                    onChange={(e) => setStudentNumberAdd(e.target.value)}
-                  />
-                </label>
+                <div className={"flex items-center justify-between mt-5"}>
+                  <label className={"w-[46%]"}>
+                    <Typography className={"font-bold"}>
+                      Talabalik turi
+                    </Typography>
+                    <Form.Item
+                      name="type"
+                      hasFeedback
+                      rules={[
+                        {
+                          required: true,
+                          message: "Turini kiritmaysanmi 🤔?",
+                        },
+                      ]}
+                    >
+                      <Select
+                        allowClear
+                        mode="multiple"
+                        options={studentType.map((item) => ({
+                          label: item.type,
+                          value: item.type,
+                        }))}
+                      />
+                    </Form.Item>
+                  </label>
+                  <label className={"w-[46%]"}>
+                    <Typography className={"font-bold"}>
+                      Kontrakt summa
+                    </Typography>
+                    <Form.Item
+                      name="contractPrice"
+                      hasFeedback
+                      rules={[
+                        {
+                          required: true,
+                          message: "Kontrakt pulini kiritmaysanmi 🤔?",
+                        },
+                      ]}
+                    >
+                      <Input />
+                    </Form.Item>
+                  </label>
+                </div>
               </div>
-              <label>
-                <Typography className={"font-bold mt-5"}>OTM</Typography>
-                <Select
+              <Divider />
+              <div className={"flex justify-end"}>
+                <Button
                   style={{
-                    width: "100%",
+                    backgroundColor: "#2E5BFF",
+                    color: "#fff",
                   }}
-                  onChange={AddStudentOTM}
-                  value={studentOTMAdd}
-                  options={studentOTM.map((item) => ({
-                    label: item.name,
-                    value: item.name,
-                  }))}
-                />
-              </label>
-              <div className={"flex items-center justify-between mt-5"}>
-                <label className={"w-[46%]"}>
-                  <Typography className={"font-bold"}>
-                    Talabalik turi
-                  </Typography>
-                  <Select
-                    style={{
-                      width: "100%",
-                    }}
-                    value={studentTypeAdd}
-                    onChange={AddStudentType}
-                    options={studentType.map((item) => ({
-                      label: item.type,
-                      value: item.type,
-                    }))}
-                  />
-                </label>
-                <label className={"w-[46%]"}>
-                  <Typography className={"font-bold"}>
-                    Kontrakt summa
-                  </Typography>
-                  <Input
-                    value={studentPriceAdd}
-                    onChange={(e) => setStudentPriceAdd(e.target.value)}
-                  />
-                </label>
+                  htmlType="submit"
+                >
+                  + Qo‘shish
+                </Button>
               </div>
-            </div>
-            <Divider />
-            <div className={"flex justify-end"}>
-              <Button
-                style={{
-                  backgroundColor: "#2E5BFF",
-                  color: "#fff",
-                }}
-                onClick={() => {
-                  success2();
-                  AddStudent();
-                }}
-                disabled={
-                  studentNameAdd === "" ||
-                  studentNumberAdd === "+998" ||
-                  studentOTMAdd === "" ||
-                  studentTypeAdd === "" ||
-                  setStudentPriceAdd === ""
-                }
-              >
-                + Qo‘shish
-              </Button>
-            </div>
+            </Form>
           </div>
         </Col>
       </Row>

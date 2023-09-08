@@ -7,6 +7,8 @@ export const SponsorsData = [
     spentPrice: 5000000,
     data: new Date(),
     status: "Yangi",
+    organizationName: "PDP Academy",
+    person: "Yuridik shaxs",
   },
   {
     id: 2,
@@ -16,6 +18,8 @@ export const SponsorsData = [
     spentPrice: 6000000,
     data: new Date(),
     status: "Moderatsiyada",
+    organizationName: "",
+    person: "Jismoniy shaxs",
   },
   {
     id: 3,
@@ -25,6 +29,8 @@ export const SponsorsData = [
     spentPrice: 4000000,
     data: new Date(),
     status: "Tasdiqlangan",
+    organizationName: "PDP University",
+    person: "Yuridik shaxs",
   },
   {
     id: 4,
@@ -34,6 +40,8 @@ export const SponsorsData = [
     spentPrice: 7000000,
     data: new Date(),
     status: "Bekor qilingan",
+    organizationName: "",
+    person: "Jismoniy shaxs",
   },
   {
     id: 5,
@@ -43,6 +51,8 @@ export const SponsorsData = [
     spentPrice: 5500000,
     data: new Date(),
     status: "Moderatsiyada",
+    organizationName: "PDP Academy",
+    person: "Yuridik shaxs",
   },
   {
     id: 6,
@@ -52,6 +62,8 @@ export const SponsorsData = [
     spentPrice: 7500000,
     data: new Date(),
     status: "Bekor qilingan",
+    organizationName: "",
+    person: "Jismoniy shaxs",
   },
   {
     id: 7,
@@ -61,6 +73,8 @@ export const SponsorsData = [
     spentPrice: 6000000,
     data: new Date(),
     status: "Yangi",
+    organizationName: "PDP University",
+    person: "Yuridik shaxs",
   },
   {
     id: 8,
@@ -70,6 +84,8 @@ export const SponsorsData = [
     spentPrice: 5500000,
     data: new Date(),
     status: "Tasdiqlangan",
+    organizationName: "",
+    person: "Jismoniy shaxs",
   },
   {
     id: 9,
@@ -79,6 +95,8 @@ export const SponsorsData = [
     spentPrice: 7000000,
     data: new Date(),
     status: "Yangi",
+    organizationName: "PDP Academy",
+    person: "Yuridik shaxs",
   },
   {
     id: 10,
@@ -88,6 +106,8 @@ export const SponsorsData = [
     spentPrice: 5000000,
     data: new Date(),
     status: "Moderatsiyada",
+    organizationName: "",
+    person: "Jismoniy shaxs",
   },
   {
     id: 11,
@@ -97,6 +117,8 @@ export const SponsorsData = [
     spentPrice: 6000000,
     data: new Date(),
     status: "Yangi",
+    organizationName: "PDP Academy",
+    person: "Yuridik shaxs",
   },
   {
     id: 12,
@@ -106,6 +128,8 @@ export const SponsorsData = [
     spentPrice: 7500000,
     data: new Date(),
     status: "Bekor qilingan",
+    organizationName: "",
+    person: "Jismoniy shaxs",
   },
   {
     id: 13,
@@ -115,6 +139,8 @@ export const SponsorsData = [
     spentPrice: 5500000,
     data: new Date(),
     status: "Tasdiqlangan",
+    organizationName: "PDP Academy",
+    person: "Yuridik shaxs",
   },
   {
     id: 14,
@@ -124,6 +150,8 @@ export const SponsorsData = [
     spentPrice: 6000000,
     data: new Date(),
     status: "Moderatsiyada",
+    organizationName: "",
+    person: "Jismoniy shaxs",
   },
   {
     id: 15,
@@ -133,6 +161,8 @@ export const SponsorsData = [
     spentPrice: 5000000,
     data: new Date(),
     status: "Moderatsiyada",
+    organizationName: "PDP Academy",
+    person: "Yuridik shaxs",
   },
   {
     id: 16,
@@ -142,6 +172,8 @@ export const SponsorsData = [
     spentPrice: 6000000,
     data: new Date(),
     status: "Bekor qilingan",
+    organizationName: "",
+    person: "Jismoniy shaxs",
   },
   {
     id: 17,
@@ -151,6 +183,8 @@ export const SponsorsData = [
     spentPrice: 7000000,
     data: new Date(),
     status: "Tasdiqlangan",
+    organizationName: "PDP Academy",
+    person: "Yuridik shaxs",
   },
   {
     id: 18,
@@ -160,6 +194,8 @@ export const SponsorsData = [
     spentPrice: 6000000,
     data: new Date(),
     status: "Moderatsiyada",
+    organizationName: "",
+    person: "Jismoniy shaxs",
   },
   {
     id: 19,
@@ -169,6 +205,8 @@ export const SponsorsData = [
     spentPrice: 5000000,
     data: new Date(),
     status: "Yangi",
+    organizationName: "PDP Academy",
+    person: "Yuridik shaxs",
   },
   {
     id: 20,
@@ -178,6 +216,8 @@ export const SponsorsData = [
     spentPrice: 5500000,
     data: new Date(),
     status: "Tasdiqlangan",
+    organizationName: "",
+    person: "Jismoniy shaxs",
   },
   {
     id: 21,
@@ -187,6 +227,8 @@ export const SponsorsData = [
     spentPrice: 6000000,
     data: new Date(),
     status: "Yangi",
+    organizationName: "PDP Academy",
+    person: "Yuridik shaxs",
   },
   {
     id: 22,
@@ -196,6 +238,8 @@ export const SponsorsData = [
     spentPrice: 5000000,
     data: new Date(),
     status: "Tasdiqlangan",
+    organizationName: "",
+    person: "Jismoniy shaxs",
   },
   {
     id: 23,
@@ -205,6 +249,8 @@ export const SponsorsData = [
     spentPrice: 7500000,
     data: new Date(),
     status: "Moderatsiyada",
+    organizationName: "PDP Academy",
+    person: "Yuridik shaxs",
   },
   {
     id: 24,
@@ -214,6 +260,8 @@ export const SponsorsData = [
     spentPrice: 6000000,
     data: new Date(),
     status: "Tasdiqlangan",
+    organizationName: "",
+    person: "Jismoniy shaxs",
   },
   {
     id: 25,
@@ -223,6 +271,8 @@ export const SponsorsData = [
     spentPrice: 7000000,
     data: new Date(),
     status: "Bekor qilingan",
+    organizationName: "PDP Academy",
+    person: "Yuridik shaxs",
   },
   {
     id: 26,
@@ -232,6 +282,8 @@ export const SponsorsData = [
     spentPrice: 6000000,
     data: new Date(),
     status: "Tasdiqlangan",
+    organizationName: "",
+    person: "Jismoniy shaxs",
   },
   {
     id: 27,
@@ -241,6 +293,8 @@ export const SponsorsData = [
     spentPrice: 5500000,
     data: new Date(),
     status: "Moderatsiyada",
+    organizationName: "PDP University",
+    person: "Yuridik shaxs",
   },
   {
     id: 28,
@@ -250,6 +304,8 @@ export const SponsorsData = [
     spentPrice: 6000000,
     data: new Date(),
     status: "Tasdiqlangan",
+    organizationName: "",
+    person: "Jismoniy shaxs",
   },
   {
     id: 29,
@@ -259,6 +315,8 @@ export const SponsorsData = [
     spentPrice: 5000000,
     data: new Date(),
     status: "Yangi",
+    organizationName: "PDP Academy",
+    person: "Yuridik shaxs",
   },
   {
     id: 30,
@@ -268,5 +326,22 @@ export const SponsorsData = [
     spentPrice: 7500000,
     data: new Date(),
     status: "Tasdiqlangan",
+    organizationName: "PDP University",
+    person: "Yuridik shaxs",
+  },
+];
+
+export const StatusSponsor = [
+  {
+    name: "Yangi",
+  },
+  {
+    name: "Moderatsiyada",
+  },
+  {
+    name: "Tasdiqlangan",
+  },
+  {
+    name: "Bekor qilingan",
   },
 ];

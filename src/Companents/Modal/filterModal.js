@@ -1,22 +1,20 @@
 import { Divider, Modal, Select, Typography, DatePicker } from "antd";
 import styled from "styled-components";
-import { useParams } from "react-router-dom";
 import React, { useContext, useState } from "react";
 import { ContextData } from "../Context/context";
 import { StudentsOTM, StudentsType } from "../SponsorsData/studentsSmallData";
 import { sponsorsStatusData } from "../SponsorsData/sponsorsSmallData";
-import { useForm } from "antd/es/form/Form";
 
 const Modals = styled(Modal)`
   .ant-btn-primary {
     background-color: blue;
   }
 `;
-
 export const FilterModal = ({
   setFilterModalOpen,
   handleCancel,
   filterModalOpen,
+  tab,
 }) => {
   const { sponsorData, setSponsorData, studentData, setStudentData } =
     useContext(ContextData);
@@ -24,11 +22,9 @@ export const FilterModal = ({
   const [studentOTM, setStudentOTM] = useState([...StudentsOTM]);
   const [sponsorStatus, setSponsorStatus] = useState([...sponsorsStatusData]);
   const [sponsorStatusData, setSponsorStatusData] = useState("");
-  const [sponsorDateFilter, setSponsorDateFilter] = useState("");
   const [filterSum, setFilterSum] = useState("Barchasi");
   const [typeStudents, setTypeStudents] = useState("");
   const [placeStudys, setPlaceStudys] = useState("");
-  const { tab } = useParams();
 
   const handleOk = () => {
     if (tab === "homiylar") {
@@ -85,6 +81,7 @@ export const FilterModal = ({
           <label>
             <Typography className={"font-bold mt-5"}>ARIZA HOLATI</Typography>
             <Select
+              mode="multiple"
               value={sponsorStatusData}
               style={{
                 width: "100%",
@@ -208,6 +205,7 @@ export const FilterModal = ({
             <Typography className={"font-bold"}>TALABALIK TURI</Typography>
             <Select
               value={typeStudents}
+              mode="multiple"
               style={{
                 width: "100%",
               }}
@@ -222,6 +220,7 @@ export const FilterModal = ({
             <Typography className={"font-bold mt-5"}>OTM</Typography>
             <Select
               value={placeStudys}
+              mode="multiple"
               style={{
                 width: "100%",
               }}

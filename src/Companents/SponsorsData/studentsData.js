@@ -6,6 +6,8 @@ export const StudentsData = [
     placeStudy: "Toshkent davlat texnika universiteti",
     separatedPrice: 2000000,
     contractAmount: 25000000,
+    number: "+998995682542",
+    studentSponsors: [],
   },
   {
     id: 2,
@@ -14,6 +16,8 @@ export const StudentsData = [
     placeStudy: "Qoraqalpog'iston davlat universiteti",
     separatedPrice: 1800000,
     contractAmount: 22000000,
+    number: "+998995682542",
+    studentSponsors: [],
   },
   {
     id: 3,
@@ -22,6 +26,8 @@ export const StudentsData = [
     placeStudy: "Namangan davlat universiteti",
     separatedPrice: 2100000,
     contractAmount: 26000000,
+    number: "+998995682542",
+    studentSponsors: [],
   },
   {
     id: 4,
@@ -30,6 +36,8 @@ export const StudentsData = [
     placeStudy: "Samarqand davlat universiteti",
     separatedPrice: 1900000,
     contractAmount: 23000000,
+    number: "+998995682542",
+    studentSponsors: [],
   },
   {
     id: 5,
@@ -38,6 +46,8 @@ export const StudentsData = [
     placeStudy: "Farg'ona davlat universiteti",
     separatedPrice: 2200000,
     contractAmount: 27000000,
+    number: "+998995682542",
+    studentSponsors: [],
   },
   {
     id: 6,
@@ -46,6 +56,8 @@ export const StudentsData = [
     placeStudy: "Jizzax davlat pedagogika instituti",
     separatedPrice: 1950000,
     contractAmount: 24000000,
+    number: "+998995682542",
+    studentSponsors: [],
   },
   {
     id: 7,
@@ -54,6 +66,8 @@ export const StudentsData = [
     placeStudy: "Toshkent axborot texnologiyalari universiteti",
     separatedPrice: 2150000,
     contractAmount: 26500000,
+    number: "+998995682542",
+    studentSponsors: [],
   },
   {
     id: 8,
@@ -62,6 +76,8 @@ export const StudentsData = [
     placeStudy: "Navoiy davlat san'at va madaniyat instituti",
     separatedPrice: 1850000,
     contractAmount: 22500000,
+    number: "+998995682542",
+    studentSponsors: [],
   },
   {
     id: 9,
@@ -70,6 +86,8 @@ export const StudentsData = [
     placeStudy: "Qarshi davlat universiteti",
     separatedPrice: 2050000,
     contractAmount: 25500000,
+    number: "+998995682542",
+    studentSponsors: [],
   },
   {
     id: 10,
@@ -78,6 +96,8 @@ export const StudentsData = [
     placeStudy: "Buxoro davlat universiteti",
     separatedPrice: 1750000,
     contractAmount: 21500000,
+    number: "+998995682542",
+    studentSponsors: [],
   },
   {
     id: 11,
@@ -86,6 +106,8 @@ export const StudentsData = [
     placeStudy: "Xorazm davlat universiteti",
     separatedPrice: 1950000,
     contractAmount: 23500000,
+    number: "+998995682542",
+    studentSponsors: [],
   },
   {
     id: 12,
@@ -94,6 +116,8 @@ export const StudentsData = [
     placeStudy: "Surxondaryo davlat universiteti",
     separatedPrice: 1800000,
     contractAmount: 22000000,
+    number: "+998995682542",
+    studentSponsors: [],
   },
   {
     id: 13,
@@ -102,6 +126,8 @@ export const StudentsData = [
     placeStudy: "Sirdaryo davlat universiteti",
     separatedPrice: 2100000,
     contractAmount: 26000000,
+    number: "+998995682542",
+    studentSponsors: [],
   },
   {
     id: 14,
@@ -110,6 +136,8 @@ export const StudentsData = [
     placeStudy: "Qashqadaryo davlat universiteti",
     separatedPrice: 1900000,
     contractAmount: 23000000,
+    number: "+998995682542",
+    studentSponsors: [],
   },
   {
     id: 15,
@@ -118,6 +146,8 @@ export const StudentsData = [
     placeStudy: "Andijon davlat texnika universiteti",
     separatedPrice: 2200000,
     contractAmount: 27000000,
+    number: "+998995682542",
+    studentSponsors: [],
   },
   {
     id: 16,
@@ -126,6 +156,8 @@ export const StudentsData = [
     placeStudy: "Farg'ona axborot texnologiyalari universiteti",
     separatedPrice: 1950000,
     contractAmount: 24000000,
+    number: "+998995682542",
+    studentSponsors: [],
   },
   {
     id: 17,
@@ -134,6 +166,8 @@ export const StudentsData = [
     placeStudy: "Namangan axborot texnologiyalari universiteti",
     separatedPrice: 2150000,
     contractAmount: 26500000,
+    number: "+998995682542",
+    studentSponsors: [],
   },
   {
     id: 18,
@@ -142,6 +176,8 @@ export const StudentsData = [
     placeStudy: "Jizzax davlat san'at va madaniyat instituti",
     separatedPrice: 1850000,
     contractAmount: 22500000,
+    number: "+998995682542",
+    studentSponsors: [],
   },
   {
     id: 19,
@@ -150,6 +186,8 @@ export const StudentsData = [
     placeStudy: "Toshkent axborot texnologiyalari universiteti",
     separatedPrice: 2050000,
     contractAmount: 25500000,
+    number: "+998995682542",
+    studentSponsors: [],
   },
   {
     id: 20,
@@ -158,6 +196,8 @@ export const StudentsData = [
     placeStudy: "Navoiy davlat san'at va madaniyat instituti",
     separatedPrice: 1750000,
     contractAmount: 21500000,
+    number: "+998995682542",
+    studentSponsors: [],
   },
   {
     id: 21,
@@ -166,6 +206,8 @@ export const StudentsData = [
     placeStudy: "Qarshi davlat universiteti",
     separatedPrice: 1950000,
     contractAmount: 23500000,
+    number: "+998995682542",
+    studentSponsors: [],
   },
   {
     id: 22,
@@ -174,6 +216,8 @@ export const StudentsData = [
     placeStudy: "Buxoro davlat universiteti",
     separatedPrice: 1800000,
     contractAmount: 22000000,
+    number: "+998995682542",
+    studentSponsors: [],
   },
   {
     id: 23,
@@ -182,6 +226,8 @@ export const StudentsData = [
     placeStudy: "Xorazm davlat universiteti",
     separatedPrice: 2100000,
     contractAmount: 26000000,
+    number: "+998995682542",
+    studentSponsors: [],
   },
   {
     id: 24,
@@ -190,6 +236,8 @@ export const StudentsData = [
     placeStudy: "Surxondaryo davlat universiteti",
     separatedPrice: 1900000,
     contractAmount: 23000000,
+    number: "+998995682542",
+    studentSponsors: [],
   },
   {
     id: 25,
@@ -198,6 +246,8 @@ export const StudentsData = [
     placeStudy: "Sirdaryo davlat universiteti",
     separatedPrice: 2200000,
     contractAmount: 27000000,
+    number: "+998995682542",
+    studentSponsors: [],
   },
   {
     id: 26,
@@ -206,6 +256,8 @@ export const StudentsData = [
     placeStudy: "Qashqadaryo davlat universiteti",
     separatedPrice: 1950000,
     contractAmount: 24000000,
+    number: "+998995682542",
+    studentSponsors: [],
   },
   {
     id: 27,
@@ -214,6 +266,8 @@ export const StudentsData = [
     placeStudy: "Andijon davlat texnika universiteti",
     separatedPrice: 2150000,
     contractAmount: 26500000,
+    number: "+998995682542",
+    studentSponsors: [],
   },
   {
     id: 28,
@@ -222,6 +276,8 @@ export const StudentsData = [
     placeStudy: "Farg'ona axborot texnologiyalari universiteti",
     separatedPrice: 1850000,
     contractAmount: 22500000,
+    number: "+998995682542",
+    studentSponsors: [],
   },
   {
     id: 29,
@@ -230,6 +286,8 @@ export const StudentsData = [
     placeStudy: "Namangan axborot texnologiyalari universiteti",
     separatedPrice: 2050000,
     contractAmount: 25500000,
+    number: "+998995682542",
+    studentSponsors: [],
   },
   {
     id: 30,
@@ -238,5 +296,7 @@ export const StudentsData = [
     placeStudy: "Andijon davlat texnika universiteti",
     separatedPrice: 2100000,
     contractAmount: 26000000,
+    number: "+998995682542",
+    studentSponsors: [],
   },
 ];
